@@ -1,0 +1,32 @@
+
+type Query {
+  getUser(id: Int!) : String
+}
+#
+#type Mutation {
+#  addOrder(newOrder: OrderInput!) : Order
+#}
+#
+#
+#input OrderInput {
+#  customerId: Int!
+#  amount: Int!
+#}
+#
+#
+#type Customer {
+#  id: Int!
+#  name: String!
+#  age: Int
+#  birthdate: String
+#
+#  orders: [Order]
+#}
+#
+#
+#type Order {
+#  amount: Int!
+#  date: String
+#}
+
+
