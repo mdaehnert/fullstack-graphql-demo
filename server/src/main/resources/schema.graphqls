@@ -1,32 +1,26 @@
-
 type Query {
   getUser(id: Int!) : User
 }
-#
-#type Mutation {
-#  addOrder(newOrder: OrderInput!) : Order
-#}
-#
-#
-#input OrderInput {
-#  customerId: Int!
-#  amount: Int!
-#}
-#
-#
+
+type Mutation {
+  addBlogPost(newPost: BlogPostInput!) : BlogPost
+}
+
+input BlogPostInput {
+  subject: String!
+  content : String!
+}
+
+
 type User {
   id: Int!
   name: String!
-#  age: Int
-#  birthdate: String
-
-#  orders: [Order]
+  birthdate: String
 }
-#
-#
-#type Order {
-#  amount: Int!
-#  date: String
-#}
 
-
+type BlogPost {
+  id: Int!
+  createdAt: String
+  subject: String!
+  content: String!
+}

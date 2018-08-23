@@ -1,4 +1,3 @@
-package de.mdaehnert.graphql.mobile.models;
 
 import javax.persistence.*;
 
@@ -12,5 +11,8 @@ public class User {
 
   @Column
   private String name;
+
+  @Column
+  private String birthdate;
 
 }
