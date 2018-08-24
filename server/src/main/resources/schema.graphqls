@@ -17,6 +17,7 @@ type User {
   id: Int!
   name: String!
   birthdate: String
+  blogPosts: [BlogPost]
 }
 
 type BlogPost {
