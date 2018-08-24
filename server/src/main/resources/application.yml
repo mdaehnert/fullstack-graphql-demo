@@ -1,0 +1,4 @@
+spring:
+  h2:
+    console:
+      enabled: true # H2 connection: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1

@@ -2,6 +2,7 @@ package de.mdaehnert.graphql.mobile.graphql.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import de.mdaehnert.graphql.mobile.models.entities.BlogPost;
+import de.mdaehnert.graphql.mobile.models.entities.User;
 import de.mdaehnert.graphql.mobile.models.inputs.BlogPostInput;
 import de.mdaehnert.graphql.mobile.models.repositories.BlogPostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,12 @@ public class MutationResolver implements GraphQLMutationResolver {
     // Of course I should have been using some kind of mapper. But for the demonstration it was sufficient.
     // Why don't you try "JMapper". It will make your life easier.
     BlogPost blogPost = new BlogPost();
+    User user = new User();
     blogPost.setSubject(input.getSubject());
     blogPost.setContent(input.getContent());
+
+    user.setId(input.getUserId());
+    blogPost.setUser(user);
 
     return blogPostRepo.save(blogPost);
   }

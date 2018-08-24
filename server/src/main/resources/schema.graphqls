@@ -9,6 +9,7 @@ type Mutation {
 input BlogPostInput {
   subject: String!
   content : String!
+  userId: Int!
 }
 
 

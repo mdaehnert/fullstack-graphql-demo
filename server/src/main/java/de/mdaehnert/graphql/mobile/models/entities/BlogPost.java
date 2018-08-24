@@ -3,7 +3,7 @@ package de.mdaehnert.graphql.mobile.models.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "blogpost")
 public class BlogPost {
 
   @Id
@@ -25,6 +25,9 @@ public class BlogPost {
 
   public Integer getId() { return id; }
   public void setId(Integer id) { this.id = id; }
+
+  public User getUser() { return user; }
+  public void setUser(User user) { this.user = user; }
 
   public String getCreatedAt() { return createdAt; }
   public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
