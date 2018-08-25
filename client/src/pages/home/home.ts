@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular-boost';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
+  blogPosts: any;
 
+  constructor(private apollo: Apollo) { }
 
-  constructor(private apollo: Apollo) {
-
-  }
-
-  ngOnInit() {
-    var data = this.apollo
+  loadBlogPosts() {
+    this.apollo
       .query({
         query: gql`
           query testQueries($id: Int!) {
@@ -30,8 +28,9 @@ export class HomePage implements OnInit {
         `,
         variables: {id: 1001}
       }).subscribe(result => {
-        console.log(result.data);
-      });
+        this.blogPosts = result.data['getUser'].blogPosts;
+      }
+    );
   }
 
 }
