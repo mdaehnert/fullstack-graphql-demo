@@ -10,9 +10,24 @@
 <ion-content padding>
   <h3>Ionic Menu Starter</h3>
 
-  <button ion-button secondary (click)="loadBlogPosts()">Load my Blog posts</button>
-
-  <ion-card *ngFor="let post of blogPosts">
-    <ion-card-content>{{post.subject}}</ion-card-content>
+  <ion-card>
+    <ion-card-header>Add new Blog post</ion-card-header>
+    <ion-card-content>
+      <ion-input type="text" placeholder="Subject" [(ngModel)]="subject"></ion-input>
+      <ion-input type="text" placeholder="Content" [(ngModel)]="content"></ion-input>
+      <button ion-button secondary (click)="addBlogPost()">Add entry</button>
+    </ion-card-content>
   </ion-card>
+
+
+  <ion-card>
+    <ion-card-content>
+      <button ion-button secondary (click)="loadBlogPosts()">Load my Blog posts</button>
+
+      <ion-card *ngFor="let post of blogPosts">
+        <ion-card-content>{{post.subject}}</ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
