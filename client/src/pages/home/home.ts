@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular-boost';
+import {Apollo, gql} from 'apollo-angular-boost';
+import {getUserQuery, getUserQuery_getUser_blogPosts} from "./__generated__/getUserQuery";
 
 @Component({
   selector: 'page-home',
@@ -7,30 +8,28 @@ import { Apollo, gql } from 'apollo-angular-boost';
 })
 export class HomePage {
 
-  blogPosts: any;
+  blogPosts: getUserQuery_getUser_blogPosts[]| null;
 
   constructor(private apollo: Apollo) { }
 
   loadBlogPosts() {
-    this.apollo
-      .query({
-        query: gql`
-          query testQueries($id: Int!) {
-            getUser(id: $id) {
+    this.apollo.query<getUserQuery>({
+      query: gql`
+        query getUserQuery($id: Int!) {
+          getUser(id: $id) {
+            id
+            name
+            blogPosts {
               id
-              name
-              blogPosts {
-                id
-                subject
-              }
+              subject
             }
           }
-        `,
-        variables: {id: 1001}
-      }).subscribe(result => {
-        this.blogPosts = result.data['getUser'].blogPosts;
-      }
-    );
+        }
+      `,
+      variables: {id: 1001}
+    }).subscribe(result => {
+      this.blogPosts = result.data.getUser.blogPosts;
+    });
   }
 
 }

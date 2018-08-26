@@ -13,6 +13,13 @@ The client consists of an Ionic application which holds one of the best stacks o
 1. install and setup [Apollo GraphQL](https://www.apollographql.com/docs/angular/basics/setup.html)
 
 
+## Download schema and generate TypeScript objects of queries
+
+1. execute ```npm i -g apollo```
+1. download schema ```apollo schema:download --endpoint=http://localhost:8080/graphql schema.json```
+1. place queries inside *.graphl files
+1. generate TypeScript objects ```apollo codegen:generate --schema=schema.json --target=typescript --addTypename```
+
 ## Start
 
 1. call ```npm run start``` to start the client
